@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Report Confirmation</h2>
+<mat-dialog-content>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-details">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef> Quantity </th>
+            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="onNoClick()">No Thanks</button>
+  <button mat-button mat-dialog-close color="primary" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
